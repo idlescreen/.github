@@ -1,8 +1,10 @@
 # idlescreen/.github
 
-Organization profile and transfer preparation for [IdleScreen](https://github.com/idlescreen).
+Organization profile and community health for [IdleScreen](https://github.com/idlescreen).
 
 | Path | Purpose |
 |------|---------|
-| [profile/README.md](profile/README.md) | Org homepage content |
-| [docs/TRANSFER_FROM_CRATERIA.md](docs/TRANSFER_FROM_CRATERIA.md) | What to transfer and in what order |
+| [profile/README.md](profile/README.md) | Org homepage catalog (core, plugins, packages, brand) |
+| [docs/TRANSFER_FROM_CRATERIA.md](docs/TRANSFER_FROM_CRATERIA.md) | Historical transfer notes (completed) |
+
+Product source lives in the individual repositories (not this meta repo).
