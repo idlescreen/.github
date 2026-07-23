@@ -1,26 +1,27 @@
-<p align="center">
-  <strong>IdleScreen</strong>
-</p>
-
 # IdleScreen
 
 Wayland-native idle screen and ambient display for Linux — modular effects,
 signed packages, built in Rust.
 
-> Product repositories are transferring from [crateria](https://github.com/crateria).
-> See [TRANSFER_FROM_CRATERIA.md](https://github.com/idlescreen/.github/blob/main/docs/TRANSFER_FROM_CRATERIA.md)
-> (or `master`, depending on default branch).
+## Projects
 
-## Planned repositories
+| Project | Description |
+|---------|-------------|
+| **[trance](https://github.com/idlescreen/trance)** | Screensaver daemon (CLI, TUI, optional COSMIC applet) |
+| **[trance-plugins](https://github.com/idlescreen/trance-plugins)** | Official visual effects |
+| **[packages](https://github.com/idlescreen/packages)** | APT and DNF package repositories |
+| **[brand](https://github.com/idlescreen/brand)** | Brand kit |
 
-| Repository | Role |
-|------------|------|
-| **idlescreen** (from `trance`) | Daemon, CLI, TUI, applet |
-| **idlescreen-plugins** (from `trance-plugins`) | Official visual effects |
-| **packages** | APT and DNF package index |
-| **brand** | Brand kit (optional transfer) |
+## Install
 
-## Install (after packages cutover)
+See [idlescreen.github.io/packages](https://idlescreen.github.io/packages/) and the [trance README](https://github.com/idlescreen/trance).
 
-Package URLs will move with the `packages` repository. Until transfer completes,
-Crateria may still host the index — check the packages README for the live URL.
+```bash
+# Debian / Ubuntu / Pop!_OS (after adding the package repo)
+sudo apt install trance
+```
+
+## Transfer notes
+
+Moved from [crateria](https://github.com/crateria). See
+[TRANSFER_FROM_CRATERIA.md](https://github.com/idlescreen/.github/blob/main/docs/TRANSFER_FROM_CRATERIA.md).
