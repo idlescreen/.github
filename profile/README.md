@@ -2,13 +2,13 @@
 
 Wayland-native idle screen and ambient display for Linux. Modular visual
 effects, optional COSMIC panel integration, and signed APT/DNF packages.
-Built in Rust.
+Built in Rust under the Apache-2.0 license.
 
 ## Core
 
 | Repository | Role |
 |------------|------|
-| [idlescreen](https://github.com/idlescreen/idlescreen) | Daemon, CLI, TUI, plugin API (package name still `trance` for now) |
+| [idlescreen](https://github.com/idlescreen/idlescreen) | Daemon, CLI, TUI, and plugin API |
 | [idlescreen-applet](https://github.com/idlescreen/idlescreen-applet) | Optional COSMIC Desktop panel applet |
 | [packages](https://github.com/idlescreen/packages) | APT and DNF package index |
 | [brand](https://github.com/idlescreen/brand) | Brand assets |
@@ -41,6 +41,10 @@ sudo apt install trance-applet
 sudo apt install trance-plugin-beams
 ```
 
+Shipped package and binary names remain `trance` / `trance-*` for install and
+API stability. The product brand and organization are IdleScreen.
+
 ## Related
 
-Self-hosted web apps: [studio2201](https://github.com/studio2201)
+Self-hosted web and container projects live under
+[studio2201](https://github.com/studio2201) (separate organization).
