@@ -8,3 +8,5 @@ Organization profile and community health for [IdleScreen](https://github.com/id
 | [docs/TARGET.md](docs/TARGET.md) | Full repo map and architecture |
 
 Product source lives in individual repositories.
+
+| [docs/BOUNDARIES.md](docs/BOUNDARIES.md) | First-principle OS/DE/compositor boundaries |

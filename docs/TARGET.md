@@ -90,3 +90,9 @@ app-* --------> depend on idle-core + saver-* (+ platform UI)
 | idlescreen-applet / idle-cosmic | app-cosmic |
 | brand | idle-brand |
 | plugin-* | saver-* |
+
+## Architecture law
+
+First-principle OS/compositor/DE boundaries are locked in
+[BOUNDARIES.md](BOUNDARIES.md). Read that before expanding idle-core or apps
+into new layers of the stack.

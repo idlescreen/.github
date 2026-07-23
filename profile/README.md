@@ -56,3 +56,8 @@ Shipped package names remain `trance` / `trance-*` until a coordinated rename.
 ## Map
 
 [docs/TARGET.md](https://github.com/idlescreen/.github/blob/main/docs/TARGET.md)
+
+## Architecture
+
+First-principle boundaries (kernel, compositor, DE vs IdleScreen):
+[docs/BOUNDARIES.md](https://github.com/idlescreen/.github/blob/main/docs/BOUNDARIES.md)
