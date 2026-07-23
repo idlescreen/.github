@@ -7,7 +7,8 @@ GitHub org: **idlescreen**
 
 | Pattern | Meaning |
 |---------|---------|
-| `idle-*` | Product, tools, packaging, brand |
+| `idle-*` | Product, tools, brand |
+| `packages` | Linux APT/DNF index (short name for host URL) |
 | `saver-*` | Official visual effects |
 
 ## Repository inventory (ABC)
@@ -17,7 +18,7 @@ GitHub org: **idlescreen**
 idle-brand
 idle-core
 idle-cosmic
-idle-packages
+packages
 idle-pro
 idle-render
 idle-studio
@@ -39,7 +40,7 @@ saver-storm
 |------|----------------|
 | idle-core | Live Wayland daemon, plugin API, live CLI/TUI |
 | idle-cosmic | COSMIC applet only |
-| idle-packages | APT/DNF signing + Pages index (Linux) |
+| packages | APT/DNF signing + Pages index (Linux) |
 | idle-brand | Icons and visual identity |
 | idle-render | Offline fixed-dt simulation → video encode |
 | idle-studio | Director TUI; jobs, segments, music, presets |
@@ -56,7 +57,7 @@ saver-*  -->  idle-core     (live presentation)
              idle-studio    (queue / creative control)
 ```
 
-## Out of scope for idle-packages
+## Out of scope for packages
 
 - Winget: manifests in microsoft/winget-pkgs (optional helper later)
 - Steam: separate Steamworks pipeline when needed
@@ -74,6 +75,6 @@ saver-*  -->  idle-core     (live presentation)
 |-----|-----|
 | idlescreen | idle-core |
 | idlescreen-applet | idle-cosmic |
-| packages | idle-packages |
+| packages | packages |
 | brand | idle-brand |
 | plugin-* | saver-* |

@@ -10,7 +10,7 @@ APT/DNF packages. Built in Rust under the Apache-2.0 license.
 |------------|------|
 | [idle-core](https://github.com/idlescreen/idle-core) | Daemon, CLI, TUI, plugin API |
 | [idle-cosmic](https://github.com/idlescreen/idle-cosmic) | COSMIC Desktop panel applet |
-| [idle-packages](https://github.com/idlescreen/idle-packages) | Linux APT and DNF package index |
+| [packages](https://github.com/idlescreen/packages) | Linux APT and DNF package index |
 | [idle-brand](https://github.com/idlescreen/idle-brand) | Brand assets |
 
 ## Create (offline video)
@@ -38,7 +38,7 @@ APT/DNF packages. Built in Rust under the Apache-2.0 license.
 
 ## Install
 
-Package index: [idlescreen.github.io/idle-packages](https://idlescreen.github.io/idle-packages/)
+Package index: [idlescreen.github.io/packages](https://idlescreen.github.io/packages/)
 
 ```bash
 # After adding the IdleScreen apt source
