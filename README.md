@@ -4,7 +4,8 @@ Organization profile and community health for [IdleScreen](https://github.com/id
 
 | Path | Purpose |
 |------|---------|
-| [profile/README.md](profile/README.md) | Org homepage catalog (core, plugins, packages, brand) |
-| [docs/TRANSFER_FROM_CRATERIA.md](docs/TRANSFER_FROM_CRATERIA.md) | Historical transfer notes (completed) |
+| [profile/README.md](profile/README.md) | Org homepage catalog |
+| [docs/TARGET.md](docs/TARGET.md) | Target repo map and architecture |
+| [docs/TRANSFER_FROM_CRATERIA.md](docs/TRANSFER_FROM_CRATERIA.md) | Historical transfer notes |
 
-Product source lives in the individual repositories.
+Product source lives in individual repositories.

@@ -1,50 +1,59 @@
 # IdleScreen
 
-Wayland-native idle screen and ambient display for Linux. Modular visual
-effects, optional COSMIC panel integration, and signed APT/DNF packages.
-Built in Rust under the Apache-2.0 license.
+Wayland-native idle screen and ambient display for Linux. Modular effects,
+optional COSMIC panel integration, offline video render tools, and signed
+APT/DNF packages. Built in Rust under the Apache-2.0 license.
 
 ## Core
 
 | Repository | Role |
 |------------|------|
-| [idlescreen](https://github.com/idlescreen/idlescreen) | Daemon, CLI, TUI, and plugin API |
-| [idlescreen-applet](https://github.com/idlescreen/idlescreen-applet) | Optional COSMIC Desktop panel applet |
-| [packages](https://github.com/idlescreen/packages) | APT and DNF package index |
-| [brand](https://github.com/idlescreen/brand) | Brand assets |
+| [idle-core](https://github.com/idlescreen/idle-core) | Daemon, CLI, TUI, plugin API |
+| [idle-cosmic](https://github.com/idlescreen/idle-cosmic) | COSMIC Desktop panel applet |
+| [idle-packages](https://github.com/idlescreen/idle-packages) | Linux APT and DNF package index |
+| [idle-brand](https://github.com/idlescreen/idle-brand) | Brand assets |
 
-## Official plugins
+## Create (offline video)
+
+| Repository | Role |
+|------------|------|
+| [idle-render](https://github.com/idlescreen/idle-render) | Offline sim → video (CLI) |
+| [idle-studio](https://github.com/idlescreen/idle-studio) | Director TUI / queue / long-form |
+| [idle-pro](https://github.com/idlescreen/idle-pro) | Monetization and product strategy |
+
+## Official effects (`saver-*`)
 
 | Repository |
 |------------|
-| [plugin-beams](https://github.com/idlescreen/plugin-beams) |
-| [plugin-bursts](https://github.com/idlescreen/plugin-bursts) |
-| [plugin-chaos](https://github.com/idlescreen/plugin-chaos) |
-| [plugin-cosmos](https://github.com/idlescreen/plugin-cosmos) |
-| [plugin-glyphs](https://github.com/idlescreen/plugin-glyphs) |
-| [plugin-gnats](https://github.com/idlescreen/plugin-gnats) |
-| [plugin-hearth](https://github.com/idlescreen/plugin-hearth) |
-| [plugin-radar](https://github.com/idlescreen/plugin-radar) |
-| [plugin-ripple](https://github.com/idlescreen/plugin-ripple) |
-| [plugin-storm](https://github.com/idlescreen/plugin-storm) |
+| [saver-beams](https://github.com/idlescreen/saver-beams) |
+| [saver-bursts](https://github.com/idlescreen/saver-bursts) |
+| [saver-chaos](https://github.com/idlescreen/saver-chaos) |
+| [saver-cosmos](https://github.com/idlescreen/saver-cosmos) |
+| [saver-glyphs](https://github.com/idlescreen/saver-glyphs) |
+| [saver-gnats](https://github.com/idlescreen/saver-gnats) |
+| [saver-hearth](https://github.com/idlescreen/saver-hearth) |
+| [saver-radar](https://github.com/idlescreen/saver-radar) |
+| [saver-ripple](https://github.com/idlescreen/saver-ripple) |
+| [saver-storm](https://github.com/idlescreen/saver-storm) |
 
 ## Install
 
-Package index: [idlescreen.github.io/packages](https://idlescreen.github.io/packages/)
+Package index: [idlescreen.github.io/idle-packages](https://idlescreen.github.io/idle-packages/)
 
 ```bash
-# Debian / Ubuntu / Pop!_OS — after adding the IdleScreen apt source
+# After adding the IdleScreen apt source
 sudo apt install trance
-# optional COSMIC applet
-sudo apt install trance-applet
-# optional effects
-sudo apt install trance-plugin-beams
+sudo apt install trance-applet          # COSMIC
+sudo apt install trance-plugin-beams    # effect
 ```
 
-Shipped package and binary names remain `trance` / `trance-*` for install and
-API stability. The product brand and organization are IdleScreen.
+Shipped package names remain `trance` / `trance-*` until a coordinated rename.
+The product brand and repositories are IdleScreen / `idle-*` / `saver-*`.
+
+## Map
+
+Full target architecture: [docs/TARGET.md](https://github.com/idlescreen/.github/blob/main/docs/TARGET.md)
 
 ## Related
 
-Self-hosted web and container projects live under
-[studio2201](https://github.com/studio2201) (separate organization).
+Self-hosted web and container projects: [studio2201](https://github.com/studio2201)
