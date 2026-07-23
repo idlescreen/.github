@@ -7,20 +7,25 @@ GitHub org: **idlescreen**
 
 | Pattern | Meaning |
 |---------|---------|
-| `idle-*` | Product, tools, brand |
-| `packages` | Linux APT/DNF index (short name for host URL) |
+| `app-*` | Platform products (DE / OS / store) |
+| `idle-*` | Shared engines, tools, brand, business |
+| `packages` | Public APT/DNF host (short name for URL) |
 | `saver-*` | Official visual effects |
 
 ## Repository inventory (ABC)
 
 ```
 .github
+app-cosmic
+app-kde
+app-steam
+app-windows
 idle-brand
 idle-core
-idle-cosmic
 idle-pro
 idle-render
 idle-studio
+idle-tui
 packages
 saver-beams
 saver-bursts
@@ -38,43 +43,50 @@ saver-storm
 
 | Repo | Responsibility |
 |------|----------------|
-| idle-core | Live Wayland daemon, plugin API, live CLI/TUI |
-| idle-cosmic | COSMIC applet only |
-| packages | APT/DNF signing + Pages index (Linux) |
+| app-cosmic | COSMIC applet + product metapackage recipe |
+| app-kde | Plasma app (stub) |
+| app-windows | Windows host (stub) |
+| app-steam | Steam / Deck packaging (stub) |
+| idle-core | Daemon, plugin API, **CLI** |
+| idle-tui | Optional live TUI (`trance-tui` binary) |
+| idle-render | Offline fixed-dt simulation → video |
+| idle-studio | Director TUI; queue, long-form, music |
+| idle-pro | Monetization and product strategy |
 | idle-brand | Icons and visual identity |
-| idle-render | Offline fixed-dt simulation → video encode |
-| idle-studio | Director TUI; jobs, segments, music, presets |
-| idle-pro | Monetization, SKUs, channel strategy docs |
-| saver-* | One effect per repo; loads via plugin API |
+| packages | APT/DNF signing + Pages index |
+| saver-* | One effect per repo |
 
 ## Data flow
 
 ```
-saver-*  -->  idle-core     (live presentation)
+saver-*  -->  idle-core     (live presentation + CLI)
          \->  idle-render   (offline frames → AV1)
                    ^
                    |
-             idle-studio    (queue / creative control)
+             idle-studio
+
+idle-tui -----> idle-core D-Bus/IPC (optional controller)
+
+app-* --------> depend on idle-core + saver-* (+ platform UI)
 ```
 
-## Out of scope for packages
+## Install (product)
 
-- Winget: manifests in microsoft/winget-pkgs (optional helper later)
-- Steam: separate Steamworks pipeline when needed
-- Flatpak: Flathub or idle-core packaging/ when needed
+`app-cosmic` metapackage → core (+ CLI) + savers + applet; Recommends idle-tui.
 
-## Historical / stable for now
+## Explicitly out
 
-- Debian/crate binary names: `trance*`
-- D-Bus well-known names (ABI)
-- Keyring filenames on the package host may still say `crateria-*`
+| Name | Why |
+|------|-----|
+| app-gnome | Parked (poor platform fit) |
+| idle-cli repo | CLI stays in idle-core |
+| idle-packages | Use plain `packages` |
 
-## Former names (GitHub redirects)
+## Former names (redirects)
 
 | Old | New |
 |-----|-----|
 | idlescreen | idle-core |
-| idlescreen-applet | idle-cosmic |
-| packages | packages |
+| idlescreen-applet / idle-cosmic | app-cosmic |
 | brand | idle-brand |
 | plugin-* | saver-* |

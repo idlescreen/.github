@@ -1,25 +1,29 @@
 # IdleScreen
 
-Wayland-native idle screen and ambient display for Linux. Modular effects,
-optional COSMIC panel integration, offline video render tools, and signed
-APT/DNF packages. Built in Rust under the Apache-2.0 license.
+Wayland-native idle screen and ambient display for Linux. Shared engines,
+platform apps, offline video tools, and signed APT/DNF packages.
+Built in Rust under the Apache-2.0 license.
 
-## Core
+## Apps (platform products)
 
 | Repository | Role |
 |------------|------|
-| [idle-core](https://github.com/idlescreen/idle-core) | Daemon, CLI, TUI, plugin API |
-| [idle-cosmic](https://github.com/idlescreen/idle-cosmic) | COSMIC Desktop panel applet |
-| [packages](https://github.com/idlescreen/packages) | Linux APT and DNF package index |
+| [app-cosmic](https://github.com/idlescreen/app-cosmic) | COSMIC Desktop (applet + product) |
+| [app-kde](https://github.com/idlescreen/app-kde) | KDE Plasma (stub) |
+| [app-windows](https://github.com/idlescreen/app-windows) | Windows host (stub) |
+| [app-steam](https://github.com/idlescreen/app-steam) | Steam / Deck (stub) |
+
+## Engines
+
+| Repository | Role |
+|------------|------|
+| [idle-core](https://github.com/idlescreen/idle-core) | Daemon, plugin API, CLI |
+| [idle-tui](https://github.com/idlescreen/idle-tui) | Optional live TUI |
+| [idle-render](https://github.com/idlescreen/idle-render) | Offline sim → video |
+| [idle-studio](https://github.com/idlescreen/idle-studio) | Director TUI / long-form |
+| [idle-pro](https://github.com/idlescreen/idle-pro) | Monetization strategy |
 | [idle-brand](https://github.com/idlescreen/idle-brand) | Brand assets |
-
-## Create (offline video)
-
-| Repository | Role |
-|------------|------|
-| [idle-render](https://github.com/idlescreen/idle-render) | Offline sim → video (CLI) |
-| [idle-studio](https://github.com/idlescreen/idle-studio) | Director TUI / queue / long-form |
-| [idle-pro](https://github.com/idlescreen/idle-pro) | Monetization and product strategy |
+| [packages](https://github.com/idlescreen/packages) | Public APT/DNF host |
 
 ## Official effects (`saver-*`)
 
@@ -41,19 +45,14 @@ APT/DNF packages. Built in Rust under the Apache-2.0 license.
 Package index: [idlescreen.github.io/packages](https://idlescreen.github.io/packages/)
 
 ```bash
-# After adding the IdleScreen apt source
 sudo apt install trance
-sudo apt install trance-applet          # COSMIC
-sudo apt install trance-plugin-beams    # effect
+sudo apt install trance-applet      # COSMIC app
+sudo apt install trance-tui         # optional TUI
+sudo apt install trance-plugin-beams
 ```
 
 Shipped package names remain `trance` / `trance-*` until a coordinated rename.
-The product brand and repositories are IdleScreen / `idle-*` / `saver-*`.
 
 ## Map
 
-Full target architecture: [docs/TARGET.md](https://github.com/idlescreen/.github/blob/main/docs/TARGET.md)
-
-## Related
-
-Self-hosted web and container projects: [studio2201](https://github.com/studio2201)
+[docs/TARGET.md](https://github.com/idlescreen/.github/blob/main/docs/TARGET.md)
