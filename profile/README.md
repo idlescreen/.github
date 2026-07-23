@@ -3,25 +3,36 @@
 Wayland-native idle screen and ambient display for Linux — modular effects,
 signed packages, built in Rust.
 
-## Projects
+## Core
 
-| Project | Description |
-|---------|-------------|
-| **[trance](https://github.com/idlescreen/trance)** | Screensaver daemon (CLI, TUI, optional COSMIC applet) |
-| **[trance-plugins](https://github.com/idlescreen/trance-plugins)** | Official visual effects |
-| **[packages](https://github.com/idlescreen/packages)** | APT and DNF package repositories |
+| Repository | Description |
+|------------|-------------|
+| **[idlescreen](https://github.com/idlescreen/idlescreen)** | Daemon, CLI, TUI, applet (formerly Trance) |
+| **[packages](https://github.com/idlescreen/packages)** | APT / DNF package index |
 | **[brand](https://github.com/idlescreen/brand)** | Brand kit |
+
+## Official plugins
+
+| Repository | Notes |
+|------------|--------|
+| [plugin-beams](https://github.com/idlescreen/plugin-beams) | beams effect |
+| [plugin-bursts](https://github.com/idlescreen/plugin-bursts) | bursts effect |
+| [plugin-chaos](https://github.com/idlescreen/plugin-chaos) | chaos effect |
+| [plugin-cosmos](https://github.com/idlescreen/plugin-cosmos) | cosmos effect |
+| [plugin-glyphs](https://github.com/idlescreen/plugin-glyphs) | glyphs effect |
+| [plugin-gnats](https://github.com/idlescreen/plugin-gnats) | gnats effect |
+| [plugin-hearth](https://github.com/idlescreen/plugin-hearth) | hearth effect |
+| [plugin-radar](https://github.com/idlescreen/plugin-radar) | radar effect |
+| [plugin-ripple](https://github.com/idlescreen/plugin-ripple) | ripple effect |
+| [plugin-storm](https://github.com/idlescreen/plugin-storm) | storm effect |
+
+| [trance-plugins](https://github.com/idlescreen/trance-plugins) | Legacy monorepo (workspace of all effects) |
 
 ## Install
 
-See [idlescreen.github.io/packages](https://idlescreen.github.io/packages/) and the [trance README](https://github.com/idlescreen/trance).
+[idlescreen.github.io/packages](https://idlescreen.github.io/packages/)
 
 ```bash
-# Debian / Ubuntu / Pop!_OS (after adding the package repo)
 sudo apt install trance
+# optional plugins: trance-plugin-beams, … or trance-plugins-all
 ```
-
-## Transfer notes
-
-Moved from [crateria](https://github.com/crateria). See
-[TRANSFER_FROM_CRATERIA.md](https://github.com/idlescreen/.github/blob/main/docs/TRANSFER_FROM_CRATERIA.md).
