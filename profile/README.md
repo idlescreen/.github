@@ -28,8 +28,6 @@ Built in Rust.
 | [plugin-ripple](https://github.com/idlescreen/plugin-ripple) |
 | [plugin-storm](https://github.com/idlescreen/plugin-storm) |
 
-Legacy packaging workspace (optional): [trance-plugins](https://github.com/idlescreen/trance-plugins)
-
 ## Install
 
 Package index: [idlescreen.github.io/packages](https://idlescreen.github.io/packages/)
