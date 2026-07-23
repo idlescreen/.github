@@ -1,38 +1,48 @@
 # IdleScreen
 
-Wayland-native idle screen and ambient display for Linux — modular effects,
-signed packages, built in Rust.
+Wayland-native idle screen and ambient display for Linux. Modular visual
+effects, optional COSMIC panel integration, and signed APT/DNF packages.
+Built in Rust.
 
 ## Core
 
-| Repository | Description |
-|------------|-------------|
-| **[idlescreen](https://github.com/idlescreen/idlescreen)** | Daemon, CLI, TUI, applet (formerly Trance) |
-| **[packages](https://github.com/idlescreen/packages)** | APT / DNF package index |
-| **[brand](https://github.com/idlescreen/brand)** | Brand kit |
+| Repository | Role |
+|------------|------|
+| [idlescreen](https://github.com/idlescreen/idlescreen) | Daemon, CLI, TUI, plugin API (package name still `trance` for now) |
+| [idlescreen-applet](https://github.com/idlescreen/idlescreen-applet) | Optional COSMIC Desktop panel applet |
+| [packages](https://github.com/idlescreen/packages) | APT and DNF package index |
+| [brand](https://github.com/idlescreen/brand) | Brand assets |
 
 ## Official plugins
 
-| Repository | Notes |
-|------------|--------|
-| [plugin-beams](https://github.com/idlescreen/plugin-beams) | beams effect |
-| [plugin-bursts](https://github.com/idlescreen/plugin-bursts) | bursts effect |
-| [plugin-chaos](https://github.com/idlescreen/plugin-chaos) | chaos effect |
-| [plugin-cosmos](https://github.com/idlescreen/plugin-cosmos) | cosmos effect |
-| [plugin-glyphs](https://github.com/idlescreen/plugin-glyphs) | glyphs effect |
-| [plugin-gnats](https://github.com/idlescreen/plugin-gnats) | gnats effect |
-| [plugin-hearth](https://github.com/idlescreen/plugin-hearth) | hearth effect |
-| [plugin-radar](https://github.com/idlescreen/plugin-radar) | radar effect |
-| [plugin-ripple](https://github.com/idlescreen/plugin-ripple) | ripple effect |
-| [plugin-storm](https://github.com/idlescreen/plugin-storm) | storm effect |
+| Repository |
+|------------|
+| [plugin-beams](https://github.com/idlescreen/plugin-beams) |
+| [plugin-bursts](https://github.com/idlescreen/plugin-bursts) |
+| [plugin-chaos](https://github.com/idlescreen/plugin-chaos) |
+| [plugin-cosmos](https://github.com/idlescreen/plugin-cosmos) |
+| [plugin-glyphs](https://github.com/idlescreen/plugin-glyphs) |
+| [plugin-gnats](https://github.com/idlescreen/plugin-gnats) |
+| [plugin-hearth](https://github.com/idlescreen/plugin-hearth) |
+| [plugin-radar](https://github.com/idlescreen/plugin-radar) |
+| [plugin-ripple](https://github.com/idlescreen/plugin-ripple) |
+| [plugin-storm](https://github.com/idlescreen/plugin-storm) |
 
-| [trance-plugins](https://github.com/idlescreen/trance-plugins) | Legacy monorepo (workspace of all effects) |
+Legacy packaging workspace (optional): [trance-plugins](https://github.com/idlescreen/trance-plugins)
 
 ## Install
 
-[idlescreen.github.io/packages](https://idlescreen.github.io/packages/)
+Package index: [idlescreen.github.io/packages](https://idlescreen.github.io/packages/)
 
 ```bash
+# Debian / Ubuntu / Pop!_OS — after adding the IdleScreen apt source
 sudo apt install trance
-# optional plugins: trance-plugin-beams, … or trance-plugins-all
+# optional COSMIC applet
+sudo apt install trance-applet
+# optional effects
+sudo apt install trance-plugin-beams
 ```
+
+## Related
+
+Self-hosted web apps: [studio2201](https://github.com/studio2201)
