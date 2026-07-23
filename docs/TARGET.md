@@ -18,10 +18,10 @@ GitHub org: **idlescreen**
 idle-brand
 idle-core
 idle-cosmic
-packages
 idle-pro
 idle-render
 idle-studio
+packages
 saver-beams
 saver-bursts
 saver-chaos
