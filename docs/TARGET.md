@@ -7,8 +7,10 @@ GitHub org: **idlescreen**
 
 | Pattern | Meaning |
 |---------|---------|
-| `app-*` | Platform products (DE / OS / store) |
-| `idle-*` | Shared engines, tools, brand, business |
+| `app-*` | Platform products (DE / OS / store / controller apps) |
+| `idle-core` / `idle-pro` | Shared engine and business track |
+| `brand` | Visual identity assets |
+| `render` | Offline export engine |
 | `packages` | Public APT/DNF host (short name for URL) |
 | `saver-*` | Official visual effects |
 
@@ -19,14 +21,14 @@ GitHub org: **idlescreen**
 app-cosmic
 app-kde
 app-steam
+app-studio
+app-tui
 app-windows
-idle-brand
+brand
 idle-core
 idle-pro
-idle-render
-idle-studio
-idle-tui
 packages
+render
 saver-beams
 saver-bursts
 saver-chaos
@@ -43,16 +45,16 @@ saver-storm
 
 | Repo | Responsibility |
 |------|----------------|
-| app-cosmic | COSMIC applet + product metapackage recipe |
+| app-cosmic | COSMIC product package (applet + requires daemon + all savers) |
 | app-kde | Plasma app (stub) |
 | app-windows | Windows host (stub) |
 | app-steam | Steam / Deck packaging (stub) |
+| app-tui | Optional live TUI controller |
+| app-studio | Director; queue, long-form, music |
 | idle-core | Daemon, plugin API, **CLI** |
-| idle-tui | Optional live TUI (`idlescreen-tui` binary; `trance-tui` alias) |
-| idle-render | Offline fixed-dt simulation → video |
-| idle-studio | Director TUI; queue, long-form, music |
+| render | Offline fixed-dt simulation → video |
 | idle-pro | Monetization and product strategy |
-| idle-brand | Icons and visual identity |
+| brand | Icons and visual identity |
 | packages | APT/DNF signing + Pages index |
 | saver-* | One effect per repo |
 
@@ -60,19 +62,23 @@ saver-storm
 
 ```
 saver-*  -->  idle-core     (live presentation + CLI)
-         \->  idle-render   (offline frames → AV1)
+         \->  render        (offline frames → AV1)
                    ^
                    |
-             idle-studio
+             app-studio
 
-idle-tui -----> idle-core D-Bus/IPC (optional controller)
+app-tui -----> idle-core D-Bus/IPC (optional controller)
 
-app-* --------> depend on idle-core + saver-* (+ platform UI)
+app-cosmic / app-*  --> depend on idle-core + saver-* (+ platform UI)
 ```
 
 ## Install (product)
 
-`app-cosmic` product package → Requires `idlescreen` + `idlescreen-savers` (all plugins) and ships the COSMIC applet; Recommends CLI/TUI.
+```bash
+sudo dnf install app-cosmic   # COSMIC: daemon + all savers + applet
+```
+
+Optional: `app-tui`, `idlescreen-cli`. Offline tools: `render`, `app-studio`.
 
 ## Explicitly out
 
@@ -86,9 +92,12 @@ app-* --------> depend on idle-core + saver-* (+ platform UI)
 
 | Old | New |
 |-----|-----|
-| idlescreen | idle-core |
+| idlescreen (monorepo) | idle-core |
 | idlescreen-applet / idle-cosmic | app-cosmic |
-| brand | idle-brand |
+| idle-tui | app-tui |
+| idle-studio | app-studio |
+| idle-render | render |
+| idle-brand / brand kit | brand |
 | plugin-* | saver-* |
 
 ## Architecture law
@@ -96,20 +105,3 @@ app-* --------> depend on idle-core + saver-* (+ platform UI)
 First-principle OS/compositor/DE boundaries are locked in
 [BOUNDARIES.md](BOUNDARIES.md). Read that before expanding idle-core or apps
 into new layers of the stack.
-
-
-## Ship package names (v2)
-
-| Package | Role | Legacy Provides/Obsoletes |
-|---------|------|---------------------------|
-| `idlescreen` | daemon | `trance` |
-| `idlescreen-cli` | CLI binary `idlescreen` | `trance-cli` / `trance` |
-| `idlescreen-savers` | all savers meta | `trance-plugins-all` |
-| `saver-<name>` | one effect | `trance-plugin-<name>` |
-| **`app-cosmic`** | COSMIC product (applet + requires daemon + all savers) | `idlescreen-applet`, `trance-applet`, `idlescreen-cosmic` |
-| `idlescreen-tui` | live TUI | `trance-tui` |
-
-
-D-Bus well-known name remains `io.github.ubermetroid.trance` for client ABI.
-Plugin `.so` stem remains `libscreensaver_<name>`.
-See idle-core `docs/NAMING.md`.

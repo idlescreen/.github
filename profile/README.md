@@ -18,11 +18,11 @@ Built in Rust under the Apache-2.0 license.
 | Repository | Role |
 |------------|------|
 | [idle-core](https://github.com/idlescreen/idle-core) | Daemon, plugin API, CLI |
-| [idle-tui](https://github.com/idlescreen/idle-tui) | Optional live TUI |
-| [idle-render](https://github.com/idlescreen/idle-render) | Offline sim → video |
-| [idle-studio](https://github.com/idlescreen/idle-studio) | Director TUI / long-form |
+| [app-tui](https://github.com/idlescreen/app-tui) | Optional live TUI |
+| [render](https://github.com/idlescreen/render) | Offline sim → video |
+| [app-studio](https://github.com/idlescreen/app-studio) | Director TUI / long-form |
 | [idle-pro](https://github.com/idlescreen/idle-pro) | Monetization strategy |
-| [idle-brand](https://github.com/idlescreen/idle-brand) | Brand assets |
+| [brand](https://github.com/idlescreen/brand) | Brand assets |
 | [packages](https://github.com/idlescreen/packages) | Public APT/DNF host |
 
 ## Official effects (`saver-*`)
@@ -45,14 +45,15 @@ Built in Rust under the Apache-2.0 license.
 Package index: [idlescreen.github.io/packages](https://idlescreen.github.io/packages/)
 
 ```bash
-sudo dnf install app-cosmic   # COSMIC: daemon + all savers + applet
-sudo apt install app-cosmic
-# pieces: idlescreen, idlescreen-savers, idlescreen-cli, idlescreen-tui
+sudo dnf install app-cosmic   # COSMIC product: daemon + all savers + applet
+sudo dnf install app-tui      # optional live TUI
+# pieces: idlescreen, idlescreen-cli, render, app-studio
 ```
 
-Legacy `trance*` package names are Obsoleted/Provided by the IdleScreen names above.
+Legacy `trance*` / `idle-*` package and repo names redirect or are Obsoleted.
 
 ## Map
+
 
 [docs/TARGET.md](https://github.com/idlescreen/.github/blob/main/docs/TARGET.md)
 

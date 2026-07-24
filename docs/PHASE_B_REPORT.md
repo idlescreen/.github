@@ -9,12 +9,12 @@ proptest for protocol logic, declarative commits on barriers.
 |------|--------|
 | Files over 250 lines | None found across audited repos |
 | Production unwrap/expect | None outside test modules (audited product crates) |
-| proptest present | idle-core, packages, saver-beams, idle-render, idle-studio |
-| New product tools | idle-render, idle-studio hardened this cycle |
+| proptest present | idle-core, packages, saver-beams, render, app-studio |
+| New product tools | render, app-studio hardened this cycle |
 
 ## Hardening applied this cycle
 
-### idle-render (v0.2.1)
+### render (v0.2.1)
 
 - Path traversal denial on output/plugin/audio (`paths::deny_parent_dirs`)
 - proptest for duration parse and segment plan invariants
@@ -22,7 +22,7 @@ proptest for protocol logic, declarative commits on barriers.
 - Alpine Dockerfile stub, Unraid XML template
 - CI already present
 
-### idle-studio (v0.2.1)
+### app-studio (v0.2.1)
 
 - proptest on CLI arg mapping
 - Blue Ocean README, AGENT.md
@@ -48,4 +48,4 @@ proptest for protocol logic, declarative commits on barriers.
 
 ## Release tags
 
-See idle-render and idle-studio `v0.2.1` tags from this Phase B release edge.
+See render and app-studio `v0.2.1` tags from this Phase B release edge.
