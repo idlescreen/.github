@@ -1,43 +1,33 @@
 # IdleScreen target architecture
 
-Human brand: **IdleScreen** · GitHub org: **idlescreen**
+## User installs
 
-## Naming
+| Package | Repo |
+|---------|------|
+| **idle-cosmic** | idle-cosmic |
+| **idle-tui** | idle-tui |
+| **idle-studio** | idle-studio |
+| **idle-windows** | idle-windows |
+| **idle-steam** | idle-steam |
 
-| Pattern | Meaning |
-|---------|---------|
-| `idle-*` apps | Products people install (`idle-cosmic`, `idle-tui`, …) |
-| `idle-core` | Daemon source; ship package **`idle`**, CLI command **`idle`** |
-| `idle-saver-*` | Official effects |
-| `render` | Offline export engine |
-| `packages` / `brand` | Host + identity (short names kept) |
+## Engine (dependency, not a product)
 
-## Repos
+| | |
+|--|--|
+| Repo | **[idle](https://github.com/idlescreen/idle)** (was idle-core) |
+| Daemon package | `idle-daemon` |
+| CLI package | `idle-cli` → command **`idle`** |
+| Savers | `idle-savers` / `idle-saver-*` |
 
-```
-idle-cosmic idle-tui idle-studio idle-windows idle-steam
-idle-core idle-pro
-idle-saver-{beams,bursts,chaos,cosmos,glyphs,gnats,hearth,radar,ripple,storm}
-render packages brand .github
-```
+## Keep short
 
-## Install
-
-```bash
-sudo dnf install idle-cosmic   # full COSMIC stack
-idle status                    # CLI
-```
+`packages` · `brand` · `render`
 
 ## Former names
 
 | Old | New |
 |-----|-----|
-| app-cosmic / idlescreen | idle-cosmic / **idle** |
-| app-tui | idle-tui |
-| app-studio | idle-studio |
-| saver-* | idle-saver-* |
-| idlescreen (package) | **idle** |
-
-## Architecture law
-
-[BOUNDARIES.md](BOUNDARIES.md)
+| idle-core | **idle** (repo) |
+| package idlescreen / idle | **idle-daemon** |
+| app-cosmic | **idle-cosmic** |
+| saver-* | **idle-saver-*** |
