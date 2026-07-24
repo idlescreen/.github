@@ -7,9 +7,19 @@
 
 ---
 
-## 🛠️ Package Repository Setup & Installation by OS
+## ⚡ Quick Install (Universal)
 
-Click your operating system below to expand repository setup and installation instructions.
+Run this single command in your terminal on Fedora, RHEL, Ubuntu, Debian, or Pop!_OS:
+
+```bash
+curl -fsSL https://idlescreen.github.io/packages/install.sh | sh
+```
+
+---
+
+## 🛠️ Manual Repository Setup & Installation by OS
+
+If you prefer to manually add the repository before installing via `dnf` or `apt`:
 
 <details>
 <summary><b>Fedora / RHEL / CentOS Stream (DNF)</b></summary>
