@@ -14,6 +14,8 @@ GitHub org: **idlescreen**
 | `packages` | Public APT/DNF host (short name for URL) |
 | `saver-*` | Official visual effects |
 
+Catalog of every public repo: [REPOS.md](REPOS.md).
+
 ## Repository inventory (ABC)
 
 ```
