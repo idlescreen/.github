@@ -45,11 +45,9 @@ Built in Rust under the Apache-2.0 license.
 Package index: [idlescreen.github.io/packages](https://idlescreen.github.io/packages/)
 
 ```bash
-sudo apt install idlescreen
-sudo apt install idlescreen-applet   # COSMIC app
-sudo apt install idlescreen-tui      # optional TUI
-sudo apt install saver-beams
-sudo apt install idlescreen-cosmic   # product meta (daemon+applet+savers)
+sudo dnf install app-cosmic   # COSMIC: daemon + all savers + applet
+sudo apt install app-cosmic
+# pieces: idlescreen, idlescreen-savers, idlescreen-cli, idlescreen-tui
 ```
 
 Legacy `trance*` package names are Obsoleted/Provided by the IdleScreen names above.

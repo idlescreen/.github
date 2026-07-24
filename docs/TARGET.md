@@ -72,7 +72,7 @@ app-* --------> depend on idle-core + saver-* (+ platform UI)
 
 ## Install (product)
 
-`idlescreen-cosmic` metapackage → `idlescreen` (+ CLI) + `idlescreen-savers` + `idlescreen-applet`; Recommends `idlescreen-tui`.
+`app-cosmic` product package → Requires `idlescreen` + `idlescreen-savers` (all plugins) and ships the COSMIC applet; Recommends CLI/TUI.
 
 ## Explicitly out
 
@@ -106,9 +106,9 @@ into new layers of the stack.
 | `idlescreen-cli` | CLI binary `idlescreen` | `trance-cli` / `trance` |
 | `idlescreen-savers` | all savers meta | `trance-plugins-all` |
 | `saver-<name>` | one effect | `trance-plugin-<name>` |
-| `idlescreen-applet` | COSMIC applet | `trance-applet` |
+| **`app-cosmic`** | COSMIC product (applet + requires daemon + all savers) | `idlescreen-applet`, `trance-applet`, `idlescreen-cosmic` |
 | `idlescreen-tui` | live TUI | `trance-tui` |
-| `idlescreen-cosmic` | product meta | — |
+
 
 D-Bus well-known name remains `io.github.ubermetroid.trance` for client ABI.
 Plugin `.so` stem remains `libscreensaver_<name>`.
