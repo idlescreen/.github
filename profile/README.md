@@ -117,7 +117,3 @@ flatpak-builder --user --install --force-clean build-dir io.github.idlescreen.id
 ```
 
 </details>
-
----
-
-🌐 **Web Portal:** [idlescreen.github.io/packages](https://idlescreen.github.io/packages/)
