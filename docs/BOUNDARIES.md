@@ -5,9 +5,10 @@ repos (engines, apps, savers, export tools) should respect these lanes.
 
 Human brand: **IdleScreen**.  
 GitHub org: **idlescreen**.  
-Historical package/crate/binary names may remain `trance*` for install and ABI
-stability. Historical D-Bus names may remain for ABI continuity. Those names do
-not change the boundaries below.
+Ship packages and binaries use IdleScreen names (`idlescreen*`, `saver-*`);
+legacy `trance*` package names are provided/obsoleted for upgrades. Historical
+D-Bus names and plugin FFI stems remain for ABI continuity. Those names do not
+change the boundaries below.
 
 ## Mental model
 

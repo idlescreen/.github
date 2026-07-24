@@ -48,7 +48,7 @@ saver-storm
 | app-windows | Windows host (stub) |
 | app-steam | Steam / Deck packaging (stub) |
 | idle-core | Daemon, plugin API, **CLI** |
-| idle-tui | Optional live TUI (`trance-tui` binary) |
+| idle-tui | Optional live TUI (`idlescreen-tui` binary; `trance-tui` alias) |
 | idle-render | Offline fixed-dt simulation → video |
 | idle-studio | Director TUI; queue, long-form, music |
 | idle-pro | Monetization and product strategy |
@@ -72,7 +72,7 @@ app-* --------> depend on idle-core + saver-* (+ platform UI)
 
 ## Install (product)
 
-`app-cosmic` metapackage → core (+ CLI) + savers + applet; Recommends idle-tui.
+`idlescreen-cosmic` metapackage → `idlescreen` (+ CLI) + `idlescreen-savers` + `idlescreen-applet`; Recommends `idlescreen-tui`.
 
 ## Explicitly out
 
@@ -96,3 +96,20 @@ app-* --------> depend on idle-core + saver-* (+ platform UI)
 First-principle OS/compositor/DE boundaries are locked in
 [BOUNDARIES.md](BOUNDARIES.md). Read that before expanding idle-core or apps
 into new layers of the stack.
+
+
+## Ship package names (v2)
+
+| Package | Role | Legacy Provides/Obsoletes |
+|---------|------|---------------------------|
+| `idlescreen` | daemon | `trance` |
+| `idlescreen-cli` | CLI binary `idlescreen` | `trance-cli` / `trance` |
+| `idlescreen-savers` | all savers meta | `trance-plugins-all` |
+| `saver-<name>` | one effect | `trance-plugin-<name>` |
+| `idlescreen-applet` | COSMIC applet | `trance-applet` |
+| `idlescreen-tui` | live TUI | `trance-tui` |
+| `idlescreen-cosmic` | product meta | — |
+
+D-Bus well-known name remains `io.github.ubermetroid.trance` for client ABI.
+Plugin `.so` stem remains `libscreensaver_<name>`.
+See idle-core `docs/NAMING.md`.

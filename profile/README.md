@@ -45,13 +45,14 @@ Built in Rust under the Apache-2.0 license.
 Package index: [idlescreen.github.io/packages](https://idlescreen.github.io/packages/)
 
 ```bash
-sudo apt install trance
-sudo apt install trance-applet      # COSMIC app
-sudo apt install trance-tui         # optional TUI
-sudo apt install trance-plugin-beams
+sudo apt install idlescreen
+sudo apt install idlescreen-applet   # COSMIC app
+sudo apt install idlescreen-tui      # optional TUI
+sudo apt install saver-beams
+sudo apt install idlescreen-cosmic   # product meta (daemon+applet+savers)
 ```
 
-Shipped package names remain `trance` / `trance-*` until a coordinated rename.
+Legacy `trance*` package names are Obsoleted/Provided by the IdleScreen names above.
 
 ## Map
 
