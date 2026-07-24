@@ -24,5 +24,3 @@
 idle-saver-{beams,bursts,chaos,cosmos,glyphs,gnats,hearth,radar,ripple,storm}
 
 ## Archived
-
-app-kde
