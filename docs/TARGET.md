@@ -7,8 +7,6 @@
 | **idle-cosmic** | idle-cosmic |
 | **idle-tui** | idle-tui |
 | **idle-studio** | idle-studio |
-| **idle-windows** | idle-windows |
-| **idle-steam** | idle-steam |
 
 ## Engine (dependency, not a product)
 

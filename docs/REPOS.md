@@ -7,8 +7,6 @@
 | [idle-cosmic](https://github.com/idlescreen/idle-cosmic) | idle-cosmic |
 | [idle-tui](https://github.com/idlescreen/idle-tui) | idle-tui |
 | [idle-studio](https://github.com/idlescreen/idle-studio) | idle-studio |
-| [idle-windows](https://github.com/idlescreen/idle-windows) | stub |
-| [idle-steam](https://github.com/idlescreen/idle-steam) | stub |
 
 ## Engine — do not advertise as install
 
