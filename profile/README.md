@@ -1,66 +1,78 @@
 # IdleScreen
 
-**IdleScreen** is a high-performance ambient screensaver host and idle management suite designed for Wayland compositors (COSMIC, Hyprland, Sway, Wayfire, KDE Plasma Wayland).
+**IdleScreen** is a modular, high-performance ambient screensaver host and idle management suite designed for Wayland compositors (COSMIC, Hyprland, Sway, Wayfire, KDE Plasma Wayland).
+
+> 💡 **Standard Package:** `idle-tui` is the universal, recommended package for all desktop environments and Wayland compositors.  
+> 🪐 **COSMIC Desktop Only:** `idle-cosmic` is specifically built for the COSMIC Desktop Environment applet integration.
 
 ---
 
 ## 🛠️ Package Repository Setup & Installation by OS
 
-Before installing any IdleScreen products, you must first add the IdleScreen package repository to your operating system's package manager.
+Click your operating system below to expand repository setup and installation instructions.
 
-### 1. Fedora / RHEL / CentOS Stream (DNF)
+<details>
+<summary><b>Fedora / RHEL / CentOS Stream (DNF)</b></summary>
 
-#### Step 1: Install the DNF Repository File
+<br>
+
+#### Step 1: Add the IdleScreen DNF Repository
 ```bash
 sudo curl -fsSL https://idlescreen.github.io/packages/rpm/idlescreen.repo \
   -o /etc/yum.repos.d/idlescreen.repo
 ```
 
-#### Step 2: Update Metadata & Install Package
+#### Step 2: Refresh Metadata & Install Product
 ```bash
-# Refresh DNF package metadata
+# Refresh DNF package database
 sudo dnf check-update
 
-# Install main COSMIC desktop applet & daemon
-sudo dnf install idle-cosmic
-
-# Optional: Install live TUI controller
+# Install standard package (Universal for all DEs / Wayland compositors)
 sudo dnf install idle-tui
+
+# Optional (COSMIC DE Only): Install COSMIC desktop integration & applet
+sudo dnf install idle-cosmic
 ```
 
----
+</details>
 
-### 2. Debian / Ubuntu / Pop!_OS / Linux Mint (APT)
+<details>
+<summary><b>Debian / Ubuntu / Pop!_OS / Linux Mint (APT)</b></summary>
 
-#### Step 1: Add the GPG Keyring & APT Source
+<br>
+
+#### Step 1: Download GPG Key & Add APT Repository
 ```bash
 # Create keyrings directory
 sudo mkdir -p /etc/apt/keyrings
 
-# Download signed GPG keyring
+# Download and install GPG keyring
 sudo curl -fsSL https://idlescreen.github.io/packages/apt/idlescreen-keyring.gpg \
   -o /etc/apt/keyrings/idlescreen.gpg
 
-# Add IdleScreen APT source
+# Add IdleScreen APT repository source
 echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/idlescreen.gpg] https://idlescreen.github.io/packages/apt stable main" \
   | sudo tee /etc/apt/sources.list.d/idlescreen.list
 ```
 
-#### Step 2: Update Package Database & Install Package
+#### Step 2: Update Package Database & Install Product
 ```bash
-# Update APT index
+# Update APT package index
 sudo apt update
 
-# Install main COSMIC desktop applet & daemon
-sudo apt install idle-cosmic
-
-# Optional: Install live TUI controller
+# Install standard package (Universal for all DEs / Wayland compositors)
 sudo apt install idle-tui
+
+# Optional (COSMIC DE Only): Install COSMIC desktop integration & applet
+sudo apt install idle-cosmic
 ```
 
----
+</details>
 
-### 3. Arch Linux / Manjaro / EndeavourOS
+<details>
+<summary><b>Arch Linux / Manjaro / EndeavourOS (`makepkg`)</b></summary>
+
+<br>
 
 #### Step 1: Clone Package Definitions
 ```bash
@@ -68,45 +80,39 @@ git clone https://github.com/idlescreen/packages.git
 cd packages/arch
 ```
 
-#### Step 2: Build & Install with `makepkg`
+#### Step 2: Build & Install Packages
 ```bash
+# Build and install the standard TUI package
 makepkg -si
 ```
 
----
+</details>
 
-### 4. Nix / NixOS
+<details>
+<summary><b>Flatpak (Cross-Distribution)</b></summary>
 
-#### Run Directly via Nix Flakes:
-```bash
-nix run github:idlescreen/packages#idle-cosmic
-```
+<br>
 
-#### Build with Nix:
-```bash
-nix-build https://github.com/idlescreen/packages/archive/main.tar.gz -A idle-cosmic
-```
-
----
-
-### 5. Flatpak (Cross-Distro)
-
+#### Step 1: Clone Manifests & Build
 ```bash
 git clone https://github.com/idlescreen/packages.git
 cd packages/flatpak
 flatpak-builder --user --install --force-clean build-dir io.github.idlescreen.idle.yaml
 ```
 
+</details>
+
 ---
 
 ## 📦 Products Overview
 
-| Product | Description | Primary Repository |
-|---------|-------------|--------------------|
-| **`idle`** | Wayland screensaver daemon & host engine | [idlescreen/idle](https://github.com/idlescreen/idle) |
-| **`idle-cosmic`** | COSMIC Desktop applet & integration | [idlescreen/idle-cosmic](https://github.com/idlescreen/idle-cosmic) |
-| **`idle-tui`** | Interactive live Terminal User Interface | [idlescreen/idle-tui](https://github.com/idlescreen/idle-tui) |
-| **`packages`** | Signed APT/DNF indexes & OS packaging | [idlescreen/packages](https://github.com/idlescreen/packages) |
+| Package | Role | Compatibility |
+|---------|------|---------------|
+| **`idle-tui`** | **Standard Package** — Interactive live TUI screensaver controller | All Wayland Compositors & DEs |
+| **`idle-cosmic`** | **COSMIC DE Only** — COSMIC panel applet & desktop integration | COSMIC Desktop Environment |
+| **`idle-studio`** | Offline director & scene renderer | All Linux environments |
+
+> **Note:** Low-level engine components (`idle-daemon`, `idle-cli`, `idle-saver-*`) are pulled automatically as dependencies.
 
 ---
 
