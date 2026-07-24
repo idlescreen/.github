@@ -117,8 +117,7 @@ our lane.
 | render / app-studio | Export: pure sim + raster + encode (no compositor) |
 | app-tui | Control-plane client (terminal) |
 | app-* | Platform chrome / metapackage (DE or store) |
-| packages | Distribution host for Linux packages |
-| idle-pro / brand | Business and brand, not runtime |
+| brand | Brand assets, not runtime |
 
 ## Explicit refusals
 
