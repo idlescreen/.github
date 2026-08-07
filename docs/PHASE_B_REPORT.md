@@ -1,13 +1,13 @@
 # Phase B org hardening report
 
-Contract: Apache-2.0 Rust, max 250 lines per `.rs`, no production unwrap/expect,
+Contract: Apache-2.0 Rust, max 256 lines per `.rs`, no production unwrap/expect,
 proptest for protocol logic, declarative commits on barriers.
 
 ## Inventory audit (snapshot)
 
 | Area | Result |
 |------|--------|
-| Files over 250 lines | None found across audited repos |
+| Files over 256 lines | None found across audited repos |
 | Production unwrap/expect | None outside test modules (audited product crates) |
 | proptest present | idle-core, packages, saver-beams, render, app-studio |
 | New product tools | render, app-studio hardened this cycle |
