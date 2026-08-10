@@ -28,7 +28,7 @@ are DE-shaped clients of the control plane, not a second display server.
 
 ## Stack lanes
 
-```
+```text
 User intent: ambient motion when away
         |
 DE / session (lock, power, user systemd)     -- NOT IdleScreen core

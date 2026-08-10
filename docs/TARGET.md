@@ -10,7 +10,7 @@
 
 ## Engine (dependency, not a product)
 
-| | |
+| Repo | Description |
 |--|--|
 | Repo | **[idle](https://github.com/idlescreen/idle)** (was idle-core) |
 | Daemon package | `idle-daemon` |
