@@ -6,14 +6,7 @@ brand assets (`profile/assets/`). Part of
 [IdleScreen](https://idlescreen.github.io) — modular Wayland screensavers
 for Linux.
 
-## Use
-
 Nothing to install — this repo configures the org's GitHub presence.
-
-## Develop
-
-Edit `profile/README.md` to update the org landing page. Keep the repo
-list in sync with reality.
 
 ## License
 
