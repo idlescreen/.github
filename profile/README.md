@@ -25,10 +25,10 @@ curl -fsSL https://idlescreen.github.io/packages/install.sh | sh
 ## Commands
 
 ```sh
-idlescreen components   # component catalog + install state
-idlescreen status       # daemon state, active saver, inhibitors
-idlescreen preview storm
-idlescreen tui          # runtime configuration
+idlescreen doctor --fix   # diagnose + repair
+idlescreen preview storm  # fullscreen saver preview
+idlescreen update         # upgrade packages
+idlescreen tui            # runtime configuration
 ```
 
 ## License
