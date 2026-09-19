@@ -1,5 +1,7 @@
 # .github
 
+[![studio2201 Suite](https://img.shields.io/badge/studio2201-5%2F5%20Verified-2f6f5e?logo=shield)](https://studio2201.com/agents#badges)
+
 IdleScreen organization metadata — the org profile
 (`profile/README.md` is what renders on github.com/idlescreen) and shared
 brand assets (`profile/assets/`). Part of
