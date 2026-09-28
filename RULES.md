@@ -464,24 +464,59 @@ documentation gets reverted.
 
 ## 8. Per-repo enforcement state
 
-| Repo | 16-256 cap gate? | One-fn-per-page? | Perf tiers? |
-|---|---|---|---|
-| `runtime` | ✅ enforced | migrating | ✅ 7 T1 + 7 T2 labels; linter + gate + runner-captured baseline live |
-| `savers` | ✅ enforced | partial | ✅ 11 T1 labels; linter + gate + runner-captured baseline live |
-| `cli` | ✅ enforced | ✅ already mostly | none yet |
-| `studio` | ✅ enforced | mostly | none yet |
-| `cosmic` | ✅ enforced | ✅ | n/a |
-| `tui` | ✅ enforced | ✅ | n/a |
-| `packages` | ✅ enforced | partial | n/a |
-| `idlescreen.github.io` | n/a | ✅ | n/a |
-| `idlescreen/.github` | n/a | ✅ | n/a |
+Every `.rs` page in every code repo now carries a `// perf:` label, and
+every repo runs `scripts/check-perf-labels.sh`, which fails the build on
+an unlabelled page. 622 pages, zero gaps.
 
-The "migrating" / "none yet" rows are the ones where the rule
-becomes real with new commits. Adding a `// perf:` label to a
-repo with no `scripts/check-perf-labels.sh` is inert — the label
-is a note to yourself until the linter ships. Per-repo CI gets the
-same shell stanza; per-repo reviewers police the function-name /
-one-fn-per-page pattern in code review.
+| Repo | 16-256 cap gate? | One-fn-per-page? | Pages | T1 | T2 | T3 | bench | test | review |
+|---|---|---|---|---|---|---|---|---|---|
+| `runtime` | ✅ enforced | migrating | 278 | 8 | 7 | 263 | 14 | 118 | 146 |
+| `savers` | ✅ enforced | partial | 184 | 11 | 0 | 173 | 11 | 53 | 120 |
+| `cli` | ✅ enforced | ✅ already mostly | 47 | 0 | 0 | 47 | 0 | 13 | 34 |
+| `studio` | ✅ enforced | mostly | 56 | 0 | 0 | 56 | 0 | 23 | 33 |
+| `cosmic` | ✅ enforced | ✅ | 12 | 0 | 0 | 12 | 0 | 4 | 8 |
+| `tui` | ✅ enforced | ✅ | 8 | 0 | 0 | 8 | 0 | 3 | 5 |
+| `idlescreen` | ✅ enforced | ✅ | 3 | 0 | 0 | 3 | 0 | 1 | 2 |
+| `packages` | ✅ enforced | partial | 34 | 0 | 0 | 34 | 0 | 23 | 11 |
+| `idlescreen.github.io` | n/a | ✅ | n/a | n/a | n/a | n/a | n/a | n/a | n/a |
+| `idlescreen/.github` | n/a | ✅ | n/a | n/a | n/a | n/a | n/a | n/a | n/a |
+
+The `review` column is the honest floor, not a pass. 358 of those 359
+pages are T3 — config, discovery, error mapping, build scripts, bench
+harnesses. The one T2 is `idle-upscaler/src/cpu/bilinear_neon.rs`, which
+is aarch64-only and is never compiled by the x86_64 CI, so a criterion
+target for it would measure nothing. T3 pages inside a benched crate are
+usually covered transitively: the T1 bench drives the crate's public
+`update`/`draw` entry points, not a leaf, so a regression in
+`cosmos/physics/merges.rs` still moves the gated `cosmos/mod.rs` number.
+Reachability has not been proven mechanically for all 358, and that is the
+gap worth closing next.
+
+The "migrating" / "partial" rows are the ones where the rule becomes real
+with new commits. Per-repo CI runs the same shell stanza; per-repo
+reviewers police the function-name / one-fn-per-page pattern in review.
+
+### A green release run must mean the release worked
+
+The step that pings `idlescreen/packages` after a release is **advisory,
+never fatal**. It used to `exit 1` when
+`IDLESCREEN_PACKAGES_DISPATCH_TOKEN` was missing, which marked a release
+that published perfectly as a failed run — and the org secret that is
+supposed to cover it is not reaching `cli` or `idlescreen`, so this was
+firing for real. That is the worst possible failure mode: it trains
+readers to ignore red on this workflow.
+
+It is safe to be lenient because the dispatch is a latency optimisation
+and not a dependency. `packages/.github/workflows/import-release.yml`
+runs a "Sweep latest releases for missing pool files" step on a 6-hourly
+cron that converges the pool to every product repo's latest release
+whether or not a dispatch ever arrived. A missing token costs at most one
+sweep window. Verified: `idlescreen v4.0.4` lost its dispatch exactly
+this way, the sweep imported it unaided, and `idlescreen_4.0.4-1_amd64.deb`
+reached the live index within minutes of a manual `workflow_dispatch`.
+
+Both failure modes now `::warning::` and exit 0. A missing *secret* is
+not a build failure; a missing *artifact* is.
 
 ---
 
