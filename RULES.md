@@ -216,22 +216,32 @@ rather than a smaller number.
 
 ### The label
 
-A page states its tier on line 2 (after the SPDX header), in a
-single `// perf:` comment:
+**Every page has one.** Not most — every. A page with no label is a
+page nobody has thought about, and that is the single failure mode
+this rule exists to prevent. The linter fails the build on an
+unlabelled page.
+
+A page states its tier and its detection mechanism on line 2 (after
+the SPDX header), in a single `// perf:` comment:
 
 ```rust
-// perf: T1 · bench: stretch · gate: perf-baseline.json
-// perf: T1 · bench: tick · sym: Screensaver · gate: perf-baseline.json
-// perf: T2 · bench: hot_path · on-demand only; not gated
-// perf: T2 · bench: none · ubuntu-latest is x86_64; promotion to T1 needs an aarch64 runner
+// perf: T1 · bench: stretch · gate: perf-baseline.json · check: bench
+// perf: T1 · bench: draw_frame · sym: render_content_viewport_into · gate: perf-baseline.json · check: bench
+// perf: T2 · bench: hot_path · on-demand only · check: bench
+// perf: T2 · bench: none · metric: aarch64-only, never compiled by the x86_64 runner · check: review
+// perf: T3 · metric: touches the filesystem; dominated by syscall latency · check: test
+// perf: T3 · metric: process-exit, never on a hot path · check: review
 ```
 
 Fields, separated by `·` (U+00B7):
 
 - `perf:` — `T1`, `T2`, or `T3`. Required.
+- `check:` — **how a machine would notice if this page's cost
+  changed**: `bench`, `test`, or `review`. Required on every page.
 - `bench:` — the `[[bench]]` target that exercises this page, or
-  `none` with the reason. Required for T1, optional for T2, banned
-  for T3.
+  `none` with the reason. Required for T1/T2, banned for T3.
+- `metric:` — what this page costs, in words. Required for T3, and
+  for a T2 that cannot be benched.
 - `sym:` — the symbol to look for in the bench source. Defaults to
   the filename minus `.rs`. It exists because some pages *cannot*
   match their own name: a `Screensaver` trait impl must stay
@@ -244,6 +254,36 @@ Fields, separated by `·` (U+00B7):
 The label names its own evidence. That is the point: you should be
 able to check a performance claim by reading one line, without
 opening the function.
+
+#### `check:` — the question the tier alone could not answer
+
+"What tier is this page?" is a claim about consequence. "How would we
+know if it got slower?" is a claim about *evidence*, and the two are
+not the same question. A tier says a page matters; `check:` says
+whether anything is actually watching it.
+
+| `check:` | What watches the page | Where |
+|---|---|---|
+| `bench` | criterion measures it; CI compares the median against a baseline | `perf.yml` |
+| `test` | a property test asserts it — call counts, allocation counts, no-syscall invariants | `cargo test` |
+| `review` | nothing automated; a human checks the `metric:` claim when the page changes | code review |
+
+`test` is the one that does the most work, and it is the answer to the
+page that is too fast to time. `apply_fade_in/past_500ms_noop`
+baselines at 0.5ns — a fraction of a clock tick — so a benchmark there
+can only ever report a different rounding of zero. A property test
+("this no-ops without touching the allocator") is machine-checkable,
+carries no noise, and catches the change that actually matters.
+
+`review` is the honest floor, not a pass. It exists because some
+pages cannot be checked: `idle_dbus::locks::poison_or_exit` exits the
+process, so there is nothing to call in a loop and nothing to assert
+on. Labelling that `check: bench` would be a false claim, and a false
+claim is worse than an honest gap.
+
+`check:` is validated, not trusted. Claiming `check: test` on a page
+with no `#[test]` fails the build, which is the whole point: the field
+is an assertion about the page, so CI holds you to it.
 
 ### Benches live in `[[bench]]` targets, never inline
 
@@ -260,16 +300,32 @@ measurement seam, not public API, and `rustdoc` hides it.
 
 ### The gate
 
-`scripts/check-perf-labels.sh` runs in CI in every repo that has
-labels. It polices T1 *claims*, not T1 *coverage*:
+`scripts/check-perf-labels.sh` runs in CI in **all eight repos** —
+it is pure bash/grep/awk, so it rides along with a checkout the job
+already has rather than costing a job of its own. It enforces:
 
+- **every page has a label.** An unlabelled `.rs` file fails the
+  build. This is the rule that changed most recently and it is the
+  one worth defending: silence used to be allowed, and the cost of
+  that silence was a page like `config.rs` reading the disk three
+  times where it used to read once, with nothing anywhere to notice.
+- every page names a `check:`, and it is one of `bench`, `test`,
+  `review`;
 - a T1 `bench:` must name a real target, and that target's source
   must actually reference the page's symbol;
 - a T1 `gate:` must name a baseline that exists;
-- a T2 `bench:` must still exist, so the claim cannot rot;
-- a T3 page may not claim a bench at all;
-- a page with no label is simply not gated. Silence is allowed.
-  A false claim is not.
+- a T1/T2 page claiming `check:` other than `bench` fails — they are
+  measured by criterion, so anything else is a false claim;
+- a T3 page may not claim a bench, and must state a `metric:`;
+- `check: test` requires a `#[test]` on the page. The field is an
+  assertion, so CI holds you to it.
+
+Labels are generated from the page's own contents by
+`scripts/label-perf-pages.py`, which derives each `metric:` from a
+signal a reviewer can confirm by reading the file — a `fs::read`
+means "touches the filesystem", a `Command::new` means "spawns a
+subprocess". It never invents a claim. Running it is how a new page
+gets its line; the linter is what stops the line from being a lie.
 
 ### The baseline pipeline
 
