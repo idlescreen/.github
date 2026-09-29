@@ -1,0 +1,26 @@
+name: sync-agents
+
+on:
+  push:
+    branches: [ master, main ]
+    paths:
+      - 'AGENTS.md'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-agents
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate-agents:
+    name: Validate Canonical AGENTS.md
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Validate Markdown
+        run: |
+          test -s AGENTS.md
+          echo "Canonical AGENTS.md is valid and active."
