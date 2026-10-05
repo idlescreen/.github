@@ -1,4 +1,14 @@
+<div align="center">
+
+<img src="assets/idlescreen-org-icon.jpg" alt="IdleScreen" width="128" />
+
 # IdleScreen
+
+**Wayland-native idle screen and ambient display for Linux.**
+
+[Website](https://idlescreen.github.io/) • [Documentation](https://idlescreen.github.io/) • [Packages](https://github.com/idlescreen/packages)
+
+</div>
 
 Modular Wayland screensavers for Linux — an idle daemon, a family of
 procedural saver plugins, and the tools around them, packaged for
