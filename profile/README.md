@@ -28,11 +28,10 @@ IdleScreen provides zero-waste ambient displays and screensavers for Linux deskt
 |---|---|
 | [**cosmic**](https://github.com/idlescreen/cosmic) | **COSMIC Panel Applet**: Native panel integration and status applet for the System76 COSMIC Desktop (`libidle_cosmic.so`). |
 | [**studio**](https://github.com/idlescreen/studio) | **Offline Video Engine & Director**: Headless rendering pipeline to AV1/H.264 video (`idle-studio`). |
-| [**savers**](https://github.com/idlescreen/savers) | **Dynamic Plugins Collection**: Historical standalone `.so` plugin crates for external saver distribution. |
 
-### Consolidated Repositories (v4.x)
+### Archived Legacy Repositories
 > [!NOTE]
-> The standalone crates [**`runtime`**](https://github.com/idlescreen/runtime), [**`cli`**](https://github.com/idlescreen/cli), and [**`tui`**](https://github.com/idlescreen/tui) have been unified into the [**`idlescreen`**](https://github.com/idlescreen/idlescreen) monorepo for atomic versioning, zero-latency execution, and single-binary packaging (`/usr/bin/idlescreen`). They are retained for ABI lineage and historical reference.
+> The standalone legacy crates [**`cli`**](https://github.com/idlescreen/cli), [**`tui`**](https://github.com/idlescreen/tui), [**`runtime`**](https://github.com/idlescreen/runtime), and [**`savers`**](https://github.com/idlescreen/savers) have been consolidated into the [**`idlescreen`**](https://github.com/idlescreen/idlescreen) monorepo (`/usr/bin/idlescreen`) and are archived on GitHub. They are preserved in read-only mode for historical reference and ABI lineage.
 
 ---
 
