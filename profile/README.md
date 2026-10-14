@@ -10,7 +10,7 @@
 
 </div>
 
-IdleScreen (`v4.2.0`) provides zero-waste ambient displays and screensavers for Linux desktops on Wayland. It features an event-driven daemon with 0.00% CPU at idle (~2–3 MB resident), 1x native grid GPU scaling via Wayland `wp_viewporter`, dynamic 60–144 Hz monitor refresh rate matching, first-class **SuperFedora** integration, and a clean OS-only (or custom text) 16-bit arcade banner across **37 in-tree ASCII effects** and **11 `idlescreen-extras` mathematical savers**.
+IdleScreen (`v4.2.1`) provides zero-waste ambient displays and screensavers for Linux desktops on Wayland. It features an event-driven daemon with 0.00% CPU at idle (~2–3 MB resident), 1x native grid GPU scaling via Wayland `wp_viewporter`, dynamic 60–144 Hz monitor refresh rate matching, first-class **SuperFedora** integration, and a clean OS-only (or custom text) 16-bit arcade banner across **37 in-tree ASCII effects** and **11 `idlescreen-extras` mathematical savers**.
 
 ---
 
@@ -19,7 +19,7 @@ IdleScreen (`v4.2.0`) provides zero-waste ambient displays and screensavers for 
 ### Core Active Repositories
 | Repository | Role |
 |---|---|
-| [**idlescreen**](https://github.com/idlescreen/idlescreen) | **Core Monorepo (`v4.2.0`)**: Unified high-performance screensaver suite containing the daemon, CLI, TUI, 37-effect ASCII engine, `idlescreen-extras` (11 mathematical savers), and `idlescreen-cosmic` panel applet. |
+| [**idlescreen**](https://github.com/idlescreen/idlescreen) | **Core Monorepo (`v4.2.1`)**: Unified high-performance screensaver suite containing the daemon, CLI, TUI, 37-effect ASCII engine, `idlescreen-extras` (11 mathematical savers), and `idlescreen-cosmic` panel applet. |
 | [**packages**](https://github.com/idlescreen/packages) | **Package Channel & Automation**: Signed package repositories (APT, RPM, Arch Linux PKGBUILD), cryptographic verification, and the universal `install.sh` bootstrap. |
 | [**idlescreen.github.io**](https://github.com/idlescreen/idlescreen.github.io) | **Product Website**: Web showcase, 48-scene interactive matrix, documentation, and download portal. |
 
