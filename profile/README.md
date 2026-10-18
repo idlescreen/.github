@@ -10,7 +10,7 @@
 
 </div>
 
-IdleScreen (`v4.4.2`) provides zero-waste ambient displays and screensavers for Linux desktops on Wayland. It features a unified single-binary architecture with an event-driven daemon at 0.00% CPU at idle (~2–3 MB resident), 1x native grid GPU scaling via Wayland `wp_viewporter`, dynamic 60–144 Hz monitor refresh rate matching, hardware monitor power-off via `zwlr-output-power-management-v1` (DPMS), live side-by-side TUI mini-preview, first-class **SuperFedora** integration, and a clean OS-only (or custom text) 16-bit arcade banner across **50 built-in 16-bit arcade, demoscene, and mathematical scenes**.
+IdleScreen (`v4.6.2`) provides zero-waste ambient displays and screensavers for Linux desktops on Wayland. It features a unified single-binary architecture with an event-driven daemon at 0.00% CPU at idle (~2–3 MB resident), 10-bit HDR deep color, 4K 2x Hi-Res GPU scaling via Wayland `wp_viewporter`, system theme adaptation, dynamic 60–144 Hz monitor refresh rate matching, hardware monitor power-off via `zwlr-output-power-management-v1` (DPMS), live side-by-side TUI mini-preview, first-class **SuperFedora** integration, and a clean OS-only (or custom text) 16-bit arcade banner across **52 built-in 16-bit arcade, demoscene, and mathematical scenes**.
 
 ---
 
@@ -19,9 +19,9 @@ IdleScreen (`v4.4.2`) provides zero-waste ambient displays and screensavers for 
 ### Core Active Repositories
 | Repository | Role |
 |---|---|
-| [**idlescreen**](https://github.com/idlescreen/idlescreen) | **Core Monorepo (`v4.4.2`)**: Unified single-binary screensaver suite containing the daemon, CLI, TUI director, and 50-scene 16-bit arcade engine. |
+| [**idlescreen**](https://github.com/idlescreen/idlescreen) | **Core Monorepo (`v4.6.2`)**: Unified single-binary screensaver suite containing the daemon, CLI, TUI director, and 52-scene 16-bit arcade engine. |
 | [**packages**](https://github.com/idlescreen/packages) | **Package Channel & Automation**: Signed package repositories (APT, RPM, Arch Linux PKGBUILD), cryptographic verification, and the universal `install.sh` bootstrap. |
-| [**idlescreen.github.io**](https://github.com/idlescreen/idlescreen.github.io) | **Product Website**: Web showcase, 50-scene interactive matrix, documentation, and download portal. |
+| [**idlescreen.github.io**](https://github.com/idlescreen/idlescreen.github.io) | **Product Website**: Web showcase, 52-scene interactive matrix, documentation, and download portal. |
 
 ### Specialized & Companion Repositories
 | Repository | Role |
@@ -49,10 +49,10 @@ curl -fsSL https://idlescreen.github.io/install.sh -o install.sh
 
 ```sh
 idlescreen status                  # check daemon, inhibitor, and screensaver status
-idlescreen preview [saver] --tour  # preview or tour all 50 scenes (Left/Right or n/p to step)
+idlescreen preview [saver] --tour  # preview or tour all 52 scenes (Left/Right or n/p to step)
 idlescreen text [text | --clear]   # set custom banner text or reset to OS-only wordmark
-idlescreen tui                     # launch interactive 50-scene configuration dashboard
-idlescreen list                    # list all 50 built-in 16-bit arcade & mathematical scenes
+idlescreen tui                     # launch interactive 52-scene configuration dashboard
+idlescreen list                    # list all 52 built-in 16-bit arcade & mathematical scenes
 idlescreen inhibitors              # inspect active D-Bus / portal / audio idle inhibitors
 idlescreen service install         # install user service (systemd, openrc, runit, s6, dinit, xdg)
 idlescreen doctor --fix            # diagnose and auto-remediate Wayland, socket, and service issues
