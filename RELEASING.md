@@ -1,6 +1,6 @@
 # Release conventions
 
-Every repo in the org carries its own version and release tag (`v4.7.1`).
+Every repo in the org carries its own version and release tag (`v4.8.0`).
 
 ## Product repos — SemVer
 
