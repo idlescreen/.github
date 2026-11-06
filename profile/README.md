@@ -4,13 +4,13 @@
 
 # IdleScreen
 
-**High-performance Wayland-native idle screen and ambient screensaver suite for Linux.**
+**Capability-secured screensaver and idle management suite built natively in openOODA (`.oo`).**
 
 [Website](https://idlescreen.github.io/) • [Documentation](https://idlescreen.github.io/) • [Packages Channel](https://github.com/idlescreen/packages) • [Core Monorepo](https://github.com/idlescreen/idlescreen)
 
 </div>
 
-IdleScreen (`v5.0.0`, built natively in **openOODA `.oo`**) provides zero-waste, capability-secured ambient displays and screensavers for Linux desktops on Wayland and Windows (`PE32+`). It features a unified single-binary architecture with an event-driven daemon at 0.00% CPU at idle (~2.6 MB flat 1,000-frame resident), 10-bit HDR deep color, 4K 2x Hi-Res GPU scaling via Wayland `wp_viewporter`, system theme adaptation, dynamic 60–144 Hz monitor refresh rate matching, hardware monitor power-off via `zwlr-output-power-management-v1` (DPMS), live side-by-side TUI mini-preview, first-class **openOODA & SuperFedora** integration, and a clean OS-only (or custom text) 16-bit arcade banner across **53 built-in 16-bit arcade, demoscene, and mathematical scenes**.
+IdleScreen (`v5.0.0`, built natively in **openOODA `.oo`**) is a zero-dependency, capability-secured screensaver and idle management suite for Linux (`339 KB` ELF) and Windows (`1.5 MB` `PE32+`). It features a unified single-binary architecture with an event-driven daemon at `0.00%` CPU at idle, a flat `2.62 MiB` 1,000-frame resident footprint via per-frame OODA arena reclamation (`@oo_arena_mark` / `@oo_arena_reset_mark`), default-deny capability security (`std/core/ooda.oo` + `std/sec/pqc.oo`), `18/18` bit-exact golden scene parity, an interactive TUI director (`idlescreen tui`), first-class **openOODA & SuperFedora** integration, and a clean OS-only (or custom text) 16-bit arcade wordmark across **53 built-in 16-bit arcade, demoscene, and mathematical scenes**.
 
 ---
 
